@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
-app.use("/api/user", UserRouter);
+app.get("/api/user", UserRouter);
 
 mongoose.connect(`${process.env.MONGO_URI}`);
 
