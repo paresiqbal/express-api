@@ -3,22 +3,22 @@ import express from "express";
 
 const router = express();
 
-router.post("/register", async (req, res) => {
-  try {
-    const { fullname, email } = req.body;
+// router.post("/register", async (req, res) => {
+//   try {
+//     const { fullname, email } = req.body;
 
-    const newUser = new UserModel({ fullname, email });
+//     const newUser = new UserModel({ fullname, email });
 
-    const savedUser = await newUser.save();
+//     const savedUser = await newUser.save();
 
-    res.json({ message: "User created successfully!", user: savedUser });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Error creating user" });
-  }
-});
+//     res.json({ message: "User created successfully!", user: savedUser });
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ message: "Error creating user" });
+//   }
+// });
 
-router.get("/get", async (req, res) => {
+router.get("/get-user", async (req, res) => {
   try {
     const users = await UserModel.find({});
     res.json(users);
