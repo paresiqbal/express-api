@@ -17,3 +17,15 @@ router.post("/register", async (req, res) => {
     res.status(500).json({ message: "Error creating user" });
   }
 });
+
+router.get("/getUser", async (req, res) => {
+  try {
+    const users = await UserModel.find({});
+    res.json(users);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Error fetching users" });
+  }
+});
+
+export { router as UserRouter };
