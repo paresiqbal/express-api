@@ -18,7 +18,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.get("/getUser", async (req, res) => {
+router.get("/get", async (req, res) => {
   try {
     const users = await UserModel.find({});
     res.json(users);
